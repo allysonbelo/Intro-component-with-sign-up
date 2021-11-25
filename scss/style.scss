@@ -1,0 +1,43 @@
+@use "sass:math";
+
+$Red: hsl(0, 100%, 74%);
+$Green: hsl(154, 59%, 51%);
+$Blue: hsl(248, 32%, 49%);
+$Dark-Blue: hsl(249, 10%, 26%);
+$Grayish-Blue: hsl(246, 25%, 77%);
+$Poppins: 'Poppins', sans-serif;
+
+//Transforma px em rem
+@function calculaRem($size){
+  @return math.div($size, 16px) * 1rem;
+}
+
+@mixin fontSize($size) {
+  font-size: calculaRem($size);
+}
+
+//Seta Display flex
+@mixin flx ($property, $jty-cnt) {
+  display: flex;
+  #{$property}: $jty-cnt;
+}
+
+//Seta Reponsividade
+@mixin for-desktop-only {
+  @media screen and (min-width: 900px) {
+    @content
+  }
+}
+
+
+
+
+.attribution {
+  @include fontSize(16px);
+  text-align: center;
+  
+  .link {
+    color: hsl(228, 45%, 44%);
+  }
+}
+

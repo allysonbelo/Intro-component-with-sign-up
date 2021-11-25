@@ -1,3 +1,9 @@
-
+.attribution {
+  font-size: 1rem;
+  text-align: center;
+}
+.attribution .link {
+  color: #3e52a3;
+}
 
 /*# sourceMappingURL=style.css.map */
