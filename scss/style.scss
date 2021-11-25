@@ -22,6 +22,11 @@ $Poppins: 'Poppins', sans-serif;
   #{$property}: $jty-cnt;
 }
 
+@mixin fontPoppins($f-weight){
+  font-family: $Poppins;
+  font-weight: $f-weight;
+}
+
 //Seta Reponsividade
 @mixin for-desktop-only {
   @media screen and (min-width: 900px) {
