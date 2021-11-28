@@ -5,10 +5,11 @@ $Green: hsl(154, 59%, 51%);
 $Blue: hsl(248, 32%, 49%);
 $Dark-Blue: hsl(249, 10%, 26%);
 $Grayish-Blue: hsl(246, 25%, 77%);
-$Poppins: 'Poppins', sans-serif;
+$Poppins: 'Poppins',
+sans-serif;
 
 //Transforma px em rem
-@function calculaRem($size){
+@function calculaRem($size) {
   @return math.div($size, 16px) * 1rem;
 }
 
@@ -22,7 +23,7 @@ $Poppins: 'Poppins', sans-serif;
   #{$property}: $jty-cnt;
 }
 
-@mixin fontPoppins($f-weight){
+@mixin fontPoppins($f-weight) {
   font-family: $Poppins;
   font-weight: $f-weight;
 }
@@ -34,17 +35,223 @@ $Poppins: 'Poppins', sans-serif;
   }
 }
 
-.validate{
-  border-color: red;
-}
+.container {
+  background: $Red url(../images/bg-intro-mobile.png) no-repeat center center / cover;
 
+  @include for-desktop-only {
+    background: $Red url(../images/bg-intro-desktop.png) no-repeat center center / cover;
+  }
+
+  .main {
+    @include fontPoppins(400);
+    min-width: 300px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    @include flx(justify-content, center);
+    align-items: center;
+    flex-direction: column;
+
+    @include for-desktop-only {
+      flex-direction: row;
+      max-width: 1440px;
+    }
+
+    .intro {
+      text-align: center;
+      color: white;
+
+      @include for-desktop-only {
+        text-align: left;
+        @include flx(justify-content, flex-start);
+        align-items: center;
+        flex-direction: column;
+        width: 50%;
+      }
+
+      &__title {
+        @include fontSize(24px);
+        width: 70%;
+        margin: 0 auto;
+
+        @include for-desktop-only {
+          @include fontSize(44px);
+          width: 75%;
+          text-align: left;
+        }
+      }
+
+      &__text {
+        @include fontSize(16px);
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+
+        @include for-desktop-only {
+          width: 75%;
+          margin-top: 1.5rem;
+
+        }
+      }
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 3rem;
+
+      @include for-desktop-only {
+        margin-top: 0;
+        width: 50%;
+      }
+
+      &__text {
+        background-color: $Blue;
+        border-radius: 10px;
+        color: $Grayish-Blue;
+        padding: 1rem 5rem;
+        margin: 0 auto;
+        width: 80%;
+        box-shadow: 0 8px 1px rgba(0, 0, 0, .15);
+
+        span {
+          @include fontPoppins(700);
+          color: white;
+        }
+      }
+
+      .contact__form {
+        background-color: white;
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 1rem;
+      }
+
+      .form {
+        @include flx(justify-content, center);
+        align-items: center;
+        border-radius: 10px;
+        flex-direction: column;
+        padding: 1rem 3rem;
+
+        &__div{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          position: relative;
+
+          .img{
+            position: absolute;
+            right: 0;
+            display: none;
+          }
+        }
+
+        @include for-desktop-only{
+          &__div{
+            width: 110%;
+  
+            .img{
+              position: absolute;
+              right: 50px;
+            }
+          }
+        }
+
+        input {
+          margin: .5rem 1rem .5rem 1rem;
+          border-radius: 5px;
+          border: 1px solid rgba(204, 204, 204, 0.521);
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          padding-left: 1rem;
+          @include fontPoppins(600);
+          color: $Dark-Blue;
+
+          @include for-desktop-only {
+            width: 100%;
+          }
+
+          &:focus {
+            border: 2px solid $Blue;
+            outline: 0;
+          }
+
+          &:focus.validate {
+            border: 2px solid $Red;
+          }
+        }
+
+        .validate{
+          border: 2px solid $Red;
+        }
+
+        input[type="submit"] {
+          background-color: $Green;
+          box-shadow: inset 0 -3px 1px rgb(46, 184, 124);
+          color: white;
+          cursor: pointer;
+          text-transform: uppercase;
+          min-width: 333px;
+          transition:
+            background-color .3s ease-in-out,
+            box-shadow .3s ease-in-out,
+            transform .3s ease-in-out;
+
+          .teste {
+            width: 100%;
+            height: 50px;
+            background: red;
+          }
+
+          @include for-desktop-only {
+            min-width: 80%;
+
+            &:hover {
+              background-color: $Red;
+              box-shadow: inset 0 -3px 1px rgb(255, 0, 0);
+              transform: scale(1.02)
+            }
+          }
+        }
+
+        &__p {
+          color: $Red;
+          @include fontSize(12px);
+          @include fontPoppins(600);
+
+          span {
+            color: $Grayish-Blue;
+          }
+
+          @include for-desktop-only {
+            width: 80%;
+          }
+        }
+
+        .span{
+          color: $Red;
+          @include fontSize(12px);
+          margin-bottom: 1rem;
+          font-style: italic;
+          text-align: right;
+          min-width: 300px;
+          width: 100%;
+          display: none;
+        }
+      }
+    }
+  }
+
+}
 
 .attribution {
   @include fontSize(16px);
   text-align: center;
-  
+  margin-top: 1rem;
+
   .link {
     color: hsl(228, 45%, 44%);
   }
 }
-
