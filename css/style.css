@@ -1,5 +1,7 @@
 .container {
   background: #ff7a7a url(../images/bg-intro-mobile.png) no-repeat center center/cover;
+  width: 100%;
+  margin: 0 auto;
 }
 @media screen and (min-width: 900px) {
   .container {
