@@ -36,14 +36,32 @@
       </p>
 
       <form class="contact__form form">
-        <input id="name" class="form__item" type="text" placeholder="First Name">
-        <input id="lastname" class="form__item" type="text" placeholder="Last Name">
-        <input class="form__item" type="email" placeholder="Email Address">
-        <input id="password" class="form__item" type="password" placeholder="Password">
-        <input class="form__submit" type="submit" value="Claim your free trial">
+        <div class="form__div">
+          <input id="name" class="form__item" type="text" placeholder="First Name">
+          <img class="img" src="images/icon-error.svg" alt="">
+        </div>
+        <span class="span" id=" erroName">First Name cannot be empty</span>
+        <div class="form__div">
+          <input id="lastname" class="form__item" type="text" placeholder="Last Name">
+          <img class="img" src="images/icon-error.svg" alt="">
+        </div>
+        <span class="span" id=" erroLastName">Last Name cannot be empty</span>
+        <div class="form__div">
+          <input class="form__item" type="email" placeholder="Email Address">
+          <img class="img" src="images/icon-error.svg" alt="">
+        </div>
+        <span class="span" id=" erroEmail">Looks like this is not an email</span>
+        <div class="form__div">
+          <input id="password" class="form__item" type="password" placeholder="Password">
+          <img class="img" src="images/icon-error.svg" alt="">
+        </div>
+        <span class="span" id="erroPassword">Password cannot be empty</span>
+        <div class="form__div">
+          <input id="btn" class="form__submit" type="submit" value="Claim your free trial">
+        </div>
+        <p class="form__p"><span>By clicking the button, you are agreeing to our</span> Terms and Services</p>
       </form>
 
-      <p class="contact__p">By clicking the button, you are agreeing to our Terms and Services</p>
     </section>
   </main>
 
