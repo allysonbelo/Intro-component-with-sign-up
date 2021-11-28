@@ -37,7 +37,6 @@ sans-serif;
 
 .container {
   background: $Red url(../images/bg-intro-mobile.png) no-repeat center center / cover;
-
   @include for-desktop-only {
     background: $Red url(../images/bg-intro-desktop.png) no-repeat center center / cover;
   }
@@ -51,6 +50,7 @@ sans-serif;
     @include flx(justify-content, center);
     align-items: center;
     flex-direction: column;
+    overflow-x: hidden;
 
     @include for-desktop-only {
       flex-direction: row;
